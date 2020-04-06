@@ -13,16 +13,16 @@ net_change_list = []
 greatest_increase = 0
 greatest_increase_month = 0
 greatest_decrease = 0
-greatest_increase_month = 0
+greatest_decrease_month = 0
 
 with open(csvpath) as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
     header=next(csvreader)
-    first_row = next(csvreader)
+    row = next(csvreader)
 # Read each row of data after the header
     
-    prev_net = int(first_row[1])
+    prev_net = int(row[1])
     total_months= total_months + 1
     total_net = total_net+int(row[1])
     greatest_increase = int(row[1])
@@ -48,10 +48,13 @@ average_change=sum(net_change_list)/len(net_change_list)
 #Find the highest and lowest change
 
 highest= max(net_change_list)
+lowest=min(net_change_list)
 
 print(f"Total Months: $ {total_months}")
 print(f"Total Change: $ {total_net}")
 print(f"Average Change: $ {average_change}")
+print(f"Greatest Increase in Profits: {greatest_increase_month},(${highest})")
+print(f"Greatest Decrease in Profits: {greatest_decrease_month},(${lowest})")
 
    
  
