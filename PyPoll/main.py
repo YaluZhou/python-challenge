@@ -47,8 +47,21 @@ with open(csvpath) as csvfile:
 
 print("Election Results")
 print(f"Total Votes:{total_vote}")
-print(f"Khan:{Khan_percent*100} ({Khan_vote})")
-print(f"Correy:{Correy_percent*100} ({Correy_vote})")
-print(f"Li:{Li_percent*100} ({Li_vote})")
-print(f"O'Tooley:{Tooley_percent*100} ({Tooley_vote})")
+print(f"Khan:{Khan_percent:.2%} ({Khan_vote})")
+print(f"Correy:{Correy_percent:.2%} ({Correy_vote})")
+print(f"Li:{Li_percent:.2%} ({Li_vote})")
+print(f"O'Tooley:{Tooley_percent:.2%} ({Tooley_vote})")
 print(f"Winner: {w_name}")
+
+output_file = os.path.join('.', 'election_data_output.txt')
+
+with open(output_file, 'w',) as txtfile:
+
+    txtfile.write(f"Election Results\n")
+    txtfile.write(f"Total Votes: {total_vote}\n")
+    txtfile.write(f"Khan: {Khan_percent:.2%}({Khan_vote})\n")
+    txtfile.write(f"Correy: {Correy_percent:.2%}({Correy_vote})\n")
+    txtfile.write(f"Li: {Li_percent:.2%}({Li_vote})\n")
+    txtfile.write(f"O'Tooley: {Tooley_percent:.2%}({Tooley_vote})\n")
+    txtfile.write(f"Winner: {w_name}\n")
+
