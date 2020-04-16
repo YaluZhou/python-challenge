@@ -56,7 +56,19 @@ print(f"Average Change: $ {average_change}")
 print(f"Greatest Increase in Profits: {greatest_increase_month},(${highest})")
 print(f"Greatest Decrease in Profits: {greatest_decrease_month},(${lowest})")
 
-   
+# The path to save the output
+output_file = os.path.join('.','budget_data_output.txt')
+
+# Open File Using "Write" Mode. Specify The Variable To Hold The Contents
+with open(output_file, 'w',) as txtfile:
+
+    txtfile.write(f"Financial Analysis\n")
+    txtfile.write(f"---------------------------\n")
+    txtfile.write(f"Total Months: {total_months}\n")
+    txtfile.write(f"Total: ${total_net}\n")
+    txtfile.write(f"Average Change: ${average_change}\n")
+    txtfile.write(f"Greatest Increase in Profits:, {greatest_increase_month}, (${highest})\n")
+    txtfile.write(f"Greatest Decrease in Profits:, {greatest_decrease_month}, (${lowest})\n")   
  
 
 
